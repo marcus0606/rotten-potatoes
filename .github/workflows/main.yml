@@ -40,3 +40,16 @@ jobs:
           tags: |
             marvin666/rotten-potatoes:latest
             marvin666/rotten-potatoes:${{github.run_number}}
+            
+  CD:
+   runs-on: ubuntu-latest
+   needs: [CI]
+   steps:
+    - users: actions/checkout@v2
+    - name: Kubernetes set context
+      uses: Azure/k8s-set-context@v1.1
+      with: 
+        # Acceptable values: kubeconfig or service-account
+        method: kubeconfig
+        # Kubernetes Config
+        kubeconfig: ${{secrets.K8S_CONFIG}}
