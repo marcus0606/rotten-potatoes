@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: movies
-          image: marvin666/rotten-potatoes:v2
+          image: marvin666/rotten-potatoes
           ports: 
             - containerPort: 5000
           env:
