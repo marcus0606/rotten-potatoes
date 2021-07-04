@@ -61,3 +61,10 @@ jobs:
           manifests: |
             k8s/mongodb/deployment.yaml
             k8s/mongodb/service.yaml
+            
+      - name: Deploy MongoDB
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+            k8s/web/deployment.yaml
+          images: marvin666/rotten-potatoes:${{github.run_number}}
