@@ -51,7 +51,6 @@ jobs:
         uses: Azure/k8s-set-context@v1.1
         with:
           method: kubeconfig
-          # Kubernetes Config
           kubeconfig: ${{secrets.K8S_CONFIG}}
 
       - name: Deploy MongoDB
